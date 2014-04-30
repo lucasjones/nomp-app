@@ -1,0 +1,24 @@
+{
+    "name": "nomp-desktop-app",
+    "version": "0.0.1",
+    "main": "./html/index.html",
+    "window": {
+        "title": "NOMP Desktop",
+        "icon": "nomp.png",
+        "toolbar": false,
+        "frame": true,
+        "width": 860,
+        "height": 600,
+        "position": "center",
+        "min_width": 860,
+        "min_height": 600,
+        "max_width": 860,
+        "max_height": 600
+    },
+    "webkit": {
+        "plugin": true
+    },
+    "dependencies": {
+        "request": "2.34.x"
+    }
+}

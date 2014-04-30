@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="../css/connect.css">
+
+<header>
+  <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
+    <a class="pure-menu-heading hot-swapper" href="./index.html"><i class="fa fa-home"></i>&nbsp;NOMP</a>
+    <ul>
+      <li class="">
+        <span style="color: #bbb;" class="hot-swapper">Connect to a pool</span>
+      </li>
+    </ul>
+    <div class="fa tooltip status" id="loadStat" title="" tooltip-side="left" offset-x="-13" offset-y="3"></div>
+  </div>
+</header>
+
+<main>
+  <div id="main">
+    <div class="miningOption" id="addNewPool">
+      <div class="miningOptionInstructions">
+        <div><p>Connect to a new pool</p></div>
+        <div>
+          <form ng-submit="tryConnect(pool_url, pool_user)">
+            <label>Pool address</label><br>
+            <label class="arrow-input">
+              <input ng-model="pool_url" type="text" name="pool_address" placeholder="www.example.org"/>
+            </label>
+            <label>Address/public key</label><br>
+            <label class="arrow-input">
+              <input ng-model="pool_user" type="text" name="address" placeholder="1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR"/>
+            </label>
+            <button type="submit" ng-disabled="connecting">Connect</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="orHolder">
+      <div id="orLine"></div>
+      <div id="orText">or</div>
+    </div>
+    <div class="miningOption" id="reconnectPool">
+      <div class="miningOptionInstructions">
+        <div><p>Reconnect to a pool</p></div>
+        <div>
+          <form ng-submit="">
+            <div class="listDiv">
+              <label class="arrow-input">
+                <input type="text" class="reconnectQuery" ng-model="reconnectQuery" placeholder="Search">
+
+                <div class="fa fa-search"></div>
+              </label>
+              <ul class="selectPool">
+                <li ng-repeat="pool in pools | filter:reconnectQuery" ng-click="setSelectedPool(pool.id)"
+                    ng-class="{selected: pool.id === selectedPool}">
+                  {{pool.name}} ({{pool.url}}) {{pool.coin ? '[' + pool.coin + ']' : ''}} - {{pool.user}}
+                </li>
+              </ul>
+            </div>
+            <div class="ctrlDiv">
+              <button ng-click="tryConnect(getSelectedPool().url, getSelectedPool().user)" name="connect"
+                      class="fa fa-arrow-right"
+                      ng-disabled="selectedPool === 0 || connecting"></button>
+              <button ng-click="removePool(selectedPool)" name="remove" class="fa fa-trash-o"
+                      ng-disabled="selectedPool === 0 || connecting"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div id="communityFooter">Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank"
+                                                                                         href="https://kiwiirc.com/client/irc.freenode.net/nomp">#nomp
+    IRC</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a target="_blank" href="http://reddit.com/r/nomp">/r/nomp</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <iframe src="http://ghbtns.com/github-btn.html?user=zone117x&repo=node-open-mining-portal&type=watch&count=true"
+            allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe>
+  </div>
+</footer>
