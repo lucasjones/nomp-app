@@ -1,12 +1,12 @@
 $(function () {
     function applyPlaceholdem() {
-        setTimeout(function() {
+        setTimeout(function () {
             Placeholdem($('[placeholder]').not('.placeholdem_done').addClass('placeholdem_done'));
         }, 0);
     }
 
     function applyToolTipster() {
-        $('.tooltip').not('.tooltip_done').addClass('tooltip_done').each(function (index) {
+        $('.tooltip').not('.tooltip_done').addClass('tooltip_done').each(function () {
             var elem = $(this);
             elem.tooltipster({
                 theme: 'tooltipster-light',
@@ -18,7 +18,7 @@ $(function () {
         });
     }
 
-    $(document).bind("DOMNodeInserted", function (e) {
+    $(document).bind("DOMNodeInserted", function () {
         applyPlaceholdem();
         applyToolTipster();
     });
