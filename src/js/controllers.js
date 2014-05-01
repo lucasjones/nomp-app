@@ -70,7 +70,8 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
                         return error();
                     }
                     $rootScope.pool = {
-                        url: url,
+                        url: origUrl,
+                        apiUrl: url,
                         user: user,
                         stats: body
                     };

@@ -35,7 +35,8 @@ module.exports = function (grunt) {
                 options: {},
                 files: {
                     'src/css/connect.css': 'src/css/connect.styl',
-                    'src/css/style.css': 'src/css/style.styl'
+                    'src/css/style.css': 'src/css/style.styl',
+                    'src/css/pool.css': 'src/css/pool.styl'
                 }
             }
         }

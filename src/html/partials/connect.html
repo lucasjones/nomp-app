@@ -50,7 +50,7 @@
               </label>
               <ul class="selectPool">
                 <li ng-repeat="pool in pools | filter:reconnectQuery" ng-click="setSelectedPool(pool.id)"
-                    ng-class="{selected: pool.id === selectedPool}">
+                    ng-class="{selected: pool.id === selectedPool}" ng-dblclick="tryConnect(pool.url, pool.user)">
                   {{pool.name}} ({{pool.url}}) {{pool.coin ? '[' + pool.coin + ']' : ''}} - {{pool.user}}
                 </li>
               </ul>
@@ -61,6 +61,7 @@
                       ng-disabled="selectedPool === 0 || connecting"></button>
               <button ng-click="removePool(selectedPool)" name="remove" class="fa fa-trash-o"
                       ng-disabled="selectedPool === 0 || connecting"></button>
+              <button class="fa fa-pencil" name="edit" disabled="disabled"></button>
             </div>
           </form>
         </div>

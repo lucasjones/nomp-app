@@ -1,19 +1,40 @@
-<h2><a href="./index.html" class="fa fa-arrow-circle-left"
-       style="color: white; text-decoration: none; margin-right: 5px;"></a>Pool</h2>
-<ul>
-  <li>Pool url: {{pool.url}}</li>
-  <li>Pool user: {{pool.user}}</li>
-  <li>Updated time: {{pool.stats.time * 1000 | date : 'HH:mm:ss yyyy-MM-dd'}}</li>
-  <li>Number of workers: {{pool.stats.global.workers}}</li>
-</ul>
-<h5>Pools:</h5>
-<ul>
-  <li style="font-size: 15px;" ng-repeat="(name, data) in pool.stats.pools">{{name}} ({{data.algorithm}})
-    {{data.hashrateString}} - valid shares: {{data.poolStats.validShares}}, invalid: {{data.poolStats.invalidShares}}.
-    blocks pending: {{data.blocks.pending}}, orphaned: {{data.blocks.orphaned}}, confirmed: {{data.blocks.confirmed}}
-  </li>
-</ul>
-<h5>Raw data:</h5>
-<pre>{{pool.stats}}</pre>
+<link rel="stylesheet" href="../css/pool.css">
+
+<header>
+  <h2 style="color: white; text-decoration: none;">
+    <a href="./index.html" class="fa fa-arrow-circle-left"
+       style="color: white; text-decoration: none; margin-right: 5px;"></a>
+    {{pool.url}}
+  </h2>
+</header>
+
+<main>
+  <div class="pure-g-r" id="statBoxes">
+    <div class="pure-u-1-2">
+      <div class="boxStats" id="boxAlgoStats">
+        <div class="boxLowerHeader">Pools / Coins</div>
+        <div class="boxStatsList">
+          <div ng-repeat="(name, data) in pool.stats.algos">
+            <div><i class="fa fa-flask"></i>{{name}}</div>
+            <div><i class="fa fa-users"></i>{{data.workers}} Miners</div>
+            <div><i class="fa fa-tachometer"></i>{{data.hashrateString}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pure-u-1-2">
+      <div class="boxStats" id="boxPoolStats">
+        <div class="boxLowerHeader">Pools / Coins</div>
+        <div class="boxStatsList">
+          <div ng-repeat="(name, data) in pool.stats.pools">
+            <div><i class="fa fa-dot-circle-o"></i>{{name}}</div>
+            <div><i class="fa fa-users"></i>{{data.workerCount}} Miners</div>
+            <div><i class="fa fa-tachometer"></i>{{data.hashrateString}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
 <footer ng-include="'./components/footer.html'"></footer>
