@@ -48,7 +48,10 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
                     console.log("Failed to connect to " + url + "/");
                     $loadElem.addClass('fa-times').addClass('failed').tooltipster('content', 'Failed to connect to \'' + origUrl + '\'').tooltipster('show', function () {
                         setTimeout(function () {
-                            $loadElem.tooltipster('hide');
+                            $loadElem = $($loadElem.selector);
+                            if($loadElem.length) {
+                                $loadElem.tooltipster('hide');
+                            }
                         }, 4000);
                     });
                     $scope.reconnectAlert = "Failed to connect to " + url + "/";
