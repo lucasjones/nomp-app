@@ -13,7 +13,9 @@ $(function () {
                 position: elem.attr('tooltip-side') || 'top',
                 offsetX: parseInt(elem.attr('offset-x')) || 0,
                 offsetY: parseInt(elem.attr('offset-y')) || 0,
-                updateAnimation: true
+                updateAnimation: false,
+                speed: 350,
+                delay: 0
             });
         });
     }

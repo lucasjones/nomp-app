@@ -1,9 +1,10 @@
 # NOMP-App
+[![Build Status](https://travis-ci.org/LucasJones/nomp-app.svg?branch=master)](https://travis-ci.org/LucasJones/nomp-app)
 #### Desktop app for node-open-mining-portal
 
 #### Table of contents
 
-* [Build instructions](#build)
+* [Build instructions](#build-instructions)
 * [License](#license)
 
 ## Build instructions

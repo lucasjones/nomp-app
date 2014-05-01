@@ -20,15 +20,20 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
     (function () {
         var $loadElem = $('#loadStat');
         $loadElem.click(function () {
-            $loadElem.removeClass('fa-times').removeClass('failed').tooltipster('content', '').tooltipster('hide');
+            $loadElem.hide().removeClass('fa-times').removeClass('failed').tooltipster('hide').tooltipster('content', '');
         });
     })();
     $scope.reconnectAlert = "";
+    var timeouts = [];
     $scope.tryConnect = function (url, user) {
         if ($scope.connecting) return;
         var origUrl = url;
         var $loadElem = $('#loadStat');
-        $loadElem.removeClass('fa-times').removeClass('failed').tooltipster('content', '').tooltipster('hide');
+        $loadElem.hide().removeClass('fa-times').removeClass('failed').tooltipster('hide').tooltipster('content', '');
+        for (var i = 0; i < timeouts.length; i++) {
+            clearTimeout(timeouts[i]);
+        }
+        timeouts = [];
         $scope.connecting = true;
         console.log("Connecting to " + url + " user: " + user);
         NProgress.start();
@@ -46,13 +51,13 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
                 function error() {
                     // An error occured
                     console.log("Failed to connect to " + url + "/");
-                    $loadElem.addClass('fa-times').addClass('failed').tooltipster('content', 'Failed to connect to \'' + origUrl + '\'').tooltipster('show', function () {
-                        setTimeout(function () {
+                    $loadElem.addClass('fa-times').addClass('failed').show().tooltipster('content', 'Failed to connect to \'' + origUrl + '\'').tooltipster('show', function () {
+                        timeouts.push(setTimeout(function () {
                             $loadElem = $($loadElem.selector);
-                            if($loadElem.length) {
+                            if ($loadElem.length) {
                                 $loadElem.tooltipster('hide');
                             }
-                        }, 4000);
+                        }, 4000));
                     });
                     $scope.reconnectAlert = 'Failed to connect to \'' + origUrl + '\'';
                 }
