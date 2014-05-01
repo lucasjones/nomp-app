@@ -1,8 +1,8 @@
-NOMP App
-========
+# NOMP App
 
-Build
-=====
+Desktop app for node-open-mining-portal
+
+## Build
 
 * `npm install`
-* `npm run build`
+* `npm run [build_all, build_win, build_mac, build_linux]`

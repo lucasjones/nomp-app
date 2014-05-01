@@ -11,6 +11,9 @@
         "grunt-contrib-stylus": "0.15.x"
     },
     "scripts": {
-        "build": "./node_modules/grunt-cli/bin/grunt build"
+        "build_all": "./node_modules/.bin/grunt build --target=all",
+        "build_win": "./node_modules/.bin/grunt build --target=win",
+        "build_mac": "./node_modules/.bin/grunt build --target=mac",
+        "build_linux": "./node_modules/.bin/grunt build --target=linux"
     }
 }

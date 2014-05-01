@@ -2,6 +2,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-node-webkit-builder');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-stylus');
+    
+    var target = grunt.option('target') || 'all';
+    if(['all', 'win', 'mac', 'linux'].indexOf(target) === -1) {
+        console.error("No such target: " + target);
+    }
 
     grunt.initConfig({
         shell: {
@@ -18,10 +23,9 @@ module.exports = function (grunt) {
             build: {
                 options: {
                     build_dir: './build', // Where the build version of my node-webkit app is saved
-                    mac: true,
-                    win: true,
-                    linux32: true,
-                    linux64: false
+                    mac: target === 'all' || target === 'mac',
+                    win: target === 'all' || target === 'win',
+                    linux32: target === 'all' || target === 'linux'
                 },
                 src: ['./src/**/*'] // Your node-webkit app
             }
