@@ -4,7 +4,7 @@
     "main": "./html/index.html",
     "window": {
         "title": "NOMP Desktop",
-        "icon": "nomp.png",
+        "icon": "./img/icon.png",
         "toolbar": false,
         "frame": true,
         "width": 860,
