@@ -3,7 +3,7 @@
 <ul>
   <li>Pool url: {{pool.url}}</li>
   <li>Pool user: {{pool.user}}</li>
-  <li>Updated time: {{pool.stats.time | date : 'HH:mm:ss dd-MM-yyyy'}}</li>
+  <li>Updated time: {{pool.stats.time * 1000 | date : 'HH:mm:ss yyyy-MM-dd'}}</li>
   <li>Number of workers: {{pool.stats.global.workers}}</li>
 </ul>
 <h5>Pools:</h5>
