@@ -5,4 +5,4 @@ Build
 =====
 
 * `npm install`
-* `grunt`
+* `npm run build`
