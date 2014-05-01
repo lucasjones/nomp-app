@@ -54,7 +54,7 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
                             }
                         }, 4000);
                     });
-                    $scope.reconnectAlert = "Failed to connect to " + url + "/";
+                    $scope.reconnectAlert = 'Failed to connect to \'' + origUrl + '\'';
                 }
 
                 if (!err && response.statusCode == 200) {
