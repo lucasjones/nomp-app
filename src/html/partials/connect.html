@@ -18,11 +18,13 @@
           <form ng-submit="tryConnect(pool_url, pool_user)">
             <input ng-model="pool_url" type="text" name="pool_address" placeholder="www.example.org"/>
             <label class="arrow-input">
-              <input ng-model="pool_user" type="text" name="address" placeholder="ca23629e2647387e99542fc0b25cdf75e101c3c0"
-                      ng-focus="showKeyDropdown()" ng-blur="hideKeyDropdown()"/>
+              <input ng-model="pool_user" type="text" name="address"
+                     placeholder="ca23629e2647387e99542fc0b25cdf75e101c3c0"
+                     ng-focus="showKeyDropdown()" ng-blur="hideKeyDropdown()"/>
               <ul class="bluelist" id="poolKeyDropdown">
                 <li ng-repeat="key in config.keys | filter:addrQuery" ng-click="setConnectAddress(key.hash160)"
-                    ng-focus="showKeyDropdown()" ng-blur="hideKeyDropdown()" ng-class="{selected: key.id === selectedKey}">
+                    ng-focus="showKeyDropdown()" ng-blur="hideKeyDropdown()"
+                    ng-class="{selected: key.id === selectedKey}">
                   {{key.name}} - {{key.hash160}}
                 </li>
               </ul>
@@ -50,7 +52,7 @@
                       class="fa fa-arrow-right" ng-disabled="selectedPool === 0 || connecting"></button>
               <button ng-click="removePool(selectedPool)" name="remove" class="fa fa-trash-o"
                       ng-disabled="selectedPool === 0 || connecting"></button>
-              <button class="fa fa-pencil" name="edit" disabled="disabled"></button>
+              <button class="fa fa-pencil" name="edit" ng-disabled="selectedPool === 0 || connecting"></button>
             </div>
           </form>
         </div>
@@ -80,7 +82,7 @@
             <div class="ctrlDiv">
               <button class="fa fa-upload" name="get_keys" ng-disabled="selectedKey == 0"></button>
               <button name="remove" class="fa fa-trash-o" ng-disabled="selectedKey == 0"></button>
-              <button class="fa fa-pencil" name="edit" disabled="disabled"></button>
+              <button class="fa fa-pencil" name="edit" ng-disabled="selectedKey == 0"></button>
               <button name="new" class="fa fa-plus"></button>
             </div>
           </form>

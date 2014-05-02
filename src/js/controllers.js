@@ -34,7 +34,7 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
             $scope.selectedPool = id;
         }
     };
-    $scope.setConnectAddress = function(addr) {
+    $scope.setConnectAddress = function (addr) {
         console.log("Setting to addr: " + addr);
         $('#addNewPool').find('input[name=address]').val(addr);
     };
