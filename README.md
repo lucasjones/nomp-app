@@ -4,13 +4,20 @@
 
 #### Table of contents
 
+* [Dependencies](#dependencies)
 * [Build instructions](#build-instructions)
 * [License](#license)
+
+## Dependencies
+
+* `node.js`
+* `npm`
+* `grunt`
 
 ## Build instructions
 
 * `npm install`
-* `npm run [build_all, build_win, build_mac, build_linux]`
+* `grunt build --target=[win, mac, linux, all]`
 
 ## License
 
