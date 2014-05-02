@@ -3,19 +3,46 @@ var request = require('request');
 var nompControllers = angular.module('nompControllers', []);
 
 nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $location) {
-    $scope.pools = [
-        {id: 1, name: 'NompPool', url: 'example.com', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'},
-        {id: 2, name: 'NompPool', url: 'example.com', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'},
-        {id: 3, name: 'NompPool', url: 'example.com', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'},
-        {id: 4, name: 'TestPool', coin: 'BTC', url: '127.0.0.1:2000', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'}
-    ];
+    $rootScope.config = {
+        pools: [
+            {id: 1, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
+            {id: 2, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
+            {id: 3, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
+            {id: 4, name: 'TestPool', coin: 'BTC', url: '127.0.0.1:2000', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'}
+        ],
+        keys: [
+            {id: 1, name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
+        ]
+    };
     $scope.connecting = false;
     $scope.pool_url = '';
     $scope.pool_user = '';
     $scope.selectedPool = 0;
-    $scope.setSelectedPool = function (id) {
+    $scope.selectedKey = 0;
+    $scope.toggleSelectedKey = function (id) {
+        if ($scope.selectedKey == id) {
+            $scope.selectedKey = 0
+        } else {
+            $scope.selectedKey = id;
+        }
+    };
+    $scope.toggleSelectedPool = function (id) {
         if ($scope.connecting) return;
-        $scope.selectedPool = id;
+        if ($scope.selectedPool == id) {
+            $scope.selectedPool = 0
+        } else {
+            $scope.selectedPool = id;
+        }
+    };
+    $scope.setConnectAddress = function(addr) {
+        console.log("Setting to addr: " + addr);
+        $('#addNewPool').find('input[name=address]').val(addr);
+    };
+    $scope.hideKeyDropdown = function () {
+//        $('#poolKeyDropdown').hide();
+    };
+    $scope.showKeyDropdown = function () {
+//        $('#poolKeyDropdown').show();
     };
     (function () {
         var $loadElem = $('#loadStat');
