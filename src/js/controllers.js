@@ -3,15 +3,6 @@ var request = require('request');
 var nompControllers = angular.module('nompControllers', []);
 
 nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $location) {
-    $rootScope.pools = [
-        {id: 1, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-        {id: 2, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-        {id: 3, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-        {id: 4, name: 'TestPool', coin: 'BTC', url: '127.0.0.1:2000', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'}
-    ];
-    $rootScope.keys = [
-        {id: 1, name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
-    ];
     $scope.connecting = false;
     $scope.pool_url = '';
     $scope.pool_user = '';
@@ -31,16 +22,6 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
         } else {
             $scope.selectedPool = id;
         }
-    };
-    $scope.setConnectAddress = function (addr) {
-        console.log("Setting to addr: " + addr);
-        $('#addNewPool').find('input[name=address]').val(addr);
-    };
-    $scope.hideKeyDropdown = function () {
-//        $('#poolKeyDropdown').hide();
-    };
-    $scope.showKeyDropdown = function () {
-//        $('#poolKeyDropdown').show();
     };
     (function () {
         var $loadElem = $('#loadStat');

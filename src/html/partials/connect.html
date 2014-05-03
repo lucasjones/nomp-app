@@ -2,7 +2,7 @@
 
 <header>
   <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
-    <a class="pure-menu-heading hot-swapper" href="./index.html"><i class="fa fa-home"></i>&nbsp;NOMP</a>
+    <a class="pure-menu-heading" href="./index.html"><i class="fa fa-home"></i>&nbsp;NOMP</a>
 
     <div class="fa tooltip status" id="loadStat" title="" tooltip-side="left" offset-x="-13" offset-y="3"></div>
   </div>
@@ -36,7 +36,7 @@
               <button ng-click="removePool(selectedPool)" name="remove" class="fa fa-trash-o"
                       ng-disabled="selectedPool === 0 || connecting"></button>
               <button class="fa fa-pencil" name="edit" ng-disabled="selectedPool === 0 || connecting"></button>
-              <button name="add" class="fa fa-plus"></button>
+              <button name="add" class="fa fa-plus" ng-click="showAddPoolDialog()"></button>
             </div>
           </form>
         </div>
@@ -67,7 +67,7 @@
               <button class="fa fa-upload" name="get_keys" ng-disabled="selectedKey == 0"></button>
               <button name="remove" class="fa fa-trash-o" ng-disabled="selectedKey == 0"></button>
               <button class="fa fa-pencil" name="edit" ng-disabled="selectedKey == 0"></button>
-              <button name="add" class="fa fa-plus"></button>
+              <button name="add" class="fa fa-plus" ng-click="showNewKeyDialog()"></button>
             </div>
           </form>
         </div>
