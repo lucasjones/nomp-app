@@ -3,17 +3,15 @@ var request = require('request');
 var nompControllers = angular.module('nompControllers', []);
 
 nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $location) {
-    $rootScope.config = {
-        pools: [
-            {id: 1, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-            {id: 2, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-            {id: 3, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-            {id: 4, name: 'TestPool', coin: 'BTC', url: '127.0.0.1:2000', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'}
-        ],
-        keys: [
-            {id: 1, name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
-        ]
-    };
+    $rootScope.pools = [
+        {id: 1, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
+        {id: 2, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
+        {id: 3, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
+        {id: 4, name: 'TestPool', coin: 'BTC', url: '127.0.0.1:2000', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'}
+    ];
+    $rootScope.keys = [
+        {id: 1, name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
+    ];
     $scope.connecting = false;
     $scope.pool_url = '';
     $scope.pool_user = '';
@@ -111,17 +109,17 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
     };
     $scope.removePool = function (id) {
         if ($scope.connecting) return;
-        for (var i = 0; i < $scope.pools.length; i++) {
-            if ($scope.pools[i].id === id) {
-                $scope.pools.splice(i, 1);
+        for (var i = 0; i < $rootScope.pools.length; i++) {
+            if ($rootScope.pools[i].id === id) {
+                $rootScope.pools.splice(i, 1);
                 return;
             }
         }
     };
     $scope.getSelectedPool = function () {
-        for (var i = 0; i < $scope.pools.length; i++) {
-            if ($scope.pools[i].id === $scope.selectedPool) {
-                return $scope.pools[i];
+        for (var i = 0; i < $rootScope.pools.length; i++) {
+            if ($rootScope.pools[i].id === $scope.selectedPool) {
+                return $rootScope.pools[i];
             }
         }
         return undefined;
