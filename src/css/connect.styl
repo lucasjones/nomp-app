@@ -36,51 +36,7 @@
   height 14px
   margin-bottom -13px
 
-#addNewPool .miningOptionInstructions
-  > div:first-child
-    padding-top 15px
-    p
-      line-height 50px
-    form
-      height 100px
-      margin 10px auto 0 auto
-      text-align left
-      width 250px
-      input
-        width 240px
-        height 30px
-        &:first-child
-          margin-top 0
-        margin-top 8px !important
-      button[type=submit]
-        border 2px solid #fff
-        width 250px
-        font-weight bold
-        font-size 18px
-        background #2fd7d6
-        color #fff
-        height 30px
-  > div:last-child > form
-    button
-      &[name=connect]
-        background #2fd7d6
-      &[name=remove]
-        background #e74c3c
-      &[name=edit]
-        background #1abc9c
-
-#keyCtrl
-  button
-    &[name=get_keys]
-      background #2fd7d6
-    &[name=remove]
-      background #e74c3c
-    &[name=edit]
-      background #1abc9c
-    &[name=new]
-      background #2ecc71
-
-#keyCtrl, #addNewPool .miningOptionInstructions > div:last-child > form
+.manage-list
   padding 10px
   height 150px
   display block
@@ -119,6 +75,14 @@
     margin-top 10px
     &:first-child
       margin-top 0
+    &:nth-child(1)
+      background #2fd7d6
+    &:nth-child(2)
+      background #e74c3c
+    &:nth-child(3)
+      background #1abc9c
+    &:nth-child(4)
+      background #2ecc71
 
 #loadStat
   width 40px
