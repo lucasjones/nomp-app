@@ -17,20 +17,40 @@ function openDialog(url, options) {
     return gui.Window.open(url, config);
 }
 
-function initGUI() {
+function initGUI($rootScope) {
     var menu = new gui.Menu({ type: 'menubar' });
 
     var poolMenu = new gui.Menu();
-    poolMenu.append(new gui.MenuItem({ label: 'Add' }));
+    poolMenu.append(new gui.MenuItem({
+        label: 'Add',
+        click: function () {
+            $rootScope.showAddPoolDialog();
+        }
+    }));
     menu.append(new gui.MenuItem({ label: 'Pool', submenu: poolMenu }));
 
     var keyMenu = new gui.Menu();
-    keyMenu.append(new gui.MenuItem({label: 'Generate'}));
-    keyMenu.append(new gui.MenuItem({label: 'Import'}));
+    keyMenu.append(new gui.MenuItem({
+        label: 'Generate',
+        click: function () {
+            $rootScope.showNewKeyDialog();
+        }
+    }));
+    keyMenu.append(new gui.MenuItem({
+        label: 'Import',
+        click: function () {
+            $rootScope.showNewKeyDialog()
+        }
+    }));
     menu.append(new gui.MenuItem({ label: 'Key', submenu: keyMenu }));
 
     var toolsMenu = new gui.Menu();
-    toolsMenu.append(new gui.MenuItem({label: 'Options'}));
+    toolsMenu.append(new gui.MenuItem({
+        label: 'Options',
+        click: function () {
+            $rootScope.showOptionsDialog();
+        }
+    }));
     menu.append(new gui.MenuItem({ label: 'Tools', submenu: toolsMenu }));
 
     var helpMenu = new gui.Menu();
@@ -44,7 +64,7 @@ function initGUI() {
     helpMenu.append(new gui.MenuItem({type: 'separator'}));
     helpMenu.append(new gui.MenuItem({
         label: 'About',
-        click: function() {
+        click: function () {
             openDialog('app://local/html/dialogs/about.html', {width: 500, height: 250});
         }
     }));
@@ -69,7 +89,7 @@ function initGUI() {
     document.body.addEventListener('contextmenu', function (ev) {
         ev.preventDefault();
         ctxMenu.items[0].enabled = (window.getSelection().toString() !== '');
-        
+
         // Popup at place you click
         ctxMenu.popup(ev.x, ev.y);
         return false;
@@ -97,7 +117,7 @@ nompApp.config(function ($routeProvider) {
 });
 
 nompApp.run(function ($rootScope) {
-    initGUI();
+    initGUI($rootScope);
 
     // The user's saved pools
     $rootScope.pools = [
@@ -113,8 +133,8 @@ nompApp.run(function ($rootScope) {
     ];
     $rootScope.showAddPoolDialog = function () {
         openDialog('app://local/html/dialogs/add_pool.html', {width: 400, height: 250})
-            .on('addPool', function(url, user) {
-                $rootScope.$apply(function() {
+            .on('addPool', function (url, user) {
+                $rootScope.$apply(function () {
                     $rootScope.pools.push({
                         id: $rootScope.nextPoolId++,
                         name: 'Unknown',
@@ -125,6 +145,9 @@ nompApp.run(function ($rootScope) {
             });
     };
     $rootScope.showNewKeyDialog = function () {
-        openDialog('app://local/html/dialogs/new_key.html', {width: 600, height: 400});
+        openDialog('app://local/html/dialogs/new_key.html', {width: 600, height: 300});
+    };
+    $rootScope.showOptionsDialog = function () {
+        openDialog('app://local/html/dialogs/options.html', {width: 600, height: 400});
     };
 });

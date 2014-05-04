@@ -25,7 +25,9 @@ dialogApp.controller('AboutCtrl', function ($scope, $rootScope) {
         }
         return startYear;
     };
-    $scope.openGithub = function() {
-        gui.Shell.openExternal('https://github.com/LucasJones/nomp-app');
-    };
+    $scope.openUrlExt = openUrlExt;
+});
+
+dialogApp.controller('NewKeyCtrl', function($scope, $rootScope) {
+    
 });

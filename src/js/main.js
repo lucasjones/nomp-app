@@ -27,3 +27,7 @@ $(function () {
     applyPlaceholdem();
     applyToolTipster();
 });
+
+function openUrlExt(url) {
+    require('nw.gui').Shell.openExternal(url);
+}
