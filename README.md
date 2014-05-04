@@ -17,7 +17,7 @@
 ## Build instructions
 
 * `npm install`
-* `grunt --target=[win, mac, linux, all]`
+* `grunt --target=[all, win, mac, linux32, linux64]`
 
 ## License
 

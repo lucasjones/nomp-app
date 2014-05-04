@@ -37,7 +37,7 @@ function initGUI() {
     helpMenu.append(new gui.MenuItem({
         label: 'Support',
         click: function () {
-            openDialog('https://kiwiirc.com/client/irc.freenode.net/nomp', {width: 450, height: 500});
+            openDialog('https://kiwiirc.com/client/irc.freenode.net/nomp', {width: 500, height: 500});
         }
     }));
     helpMenu.append(new gui.MenuItem({label: 'FAQ'}));
@@ -106,12 +106,23 @@ nompApp.run(function ($rootScope) {
         {id: 3, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
         {id: 4, name: 'TestPool', coin: 'BTC', url: '127.0.0.1:2000', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'}
     ];
+    $rootScope.nextPoolId = 5;
     // The user's mining keys
     $rootScope.keys = [
         {id: 1, name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
     ];
     $rootScope.showAddPoolDialog = function () {
-        openDialog('app://local/html/dialogs/add_pool.html', {width: 600, height: 400});
+        openDialog('app://local/html/dialogs/add_pool.html', {width: 400, height: 250})
+            .on('addPool', function(url, user) {
+                $rootScope.$apply(function() {
+                    $rootScope.pools.push({
+                        id: $rootScope.nextPoolId++,
+                        name: '??',
+                        url: url,
+                        user: user
+                    });
+                });
+            });
     };
     $rootScope.showNewKeyDialog = function () {
         openDialog('app://local/html/dialogs/new_key.html', {width: 600, height: 400});

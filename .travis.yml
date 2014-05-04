@@ -5,4 +5,4 @@ before_install:
  - npm install -g grunt-cli
  - npm install
 install:
- - grunt --target=linux
+ - grunt --target=linux32
