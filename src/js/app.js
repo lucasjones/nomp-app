@@ -1,6 +1,22 @@
 var gui = require('nw.gui');
 var mainWindow = gui.Window.get();
 
+function openDialog(url, options) {
+    var config = {
+        title: "NOMP Desktop",
+        icon: "./img/icon.png",
+        position: "center",
+        toolbar: false,
+        frame: true,
+        width: 600,
+        height: 400,
+        resizable: true,
+        'always-on-top': false
+    };
+    $.extend(config, options);
+    return gui.Window.open(url, config);
+}
+
 function initGUI() {
     var menu = new gui.Menu({ type: 'menubar' });
 
@@ -21,12 +37,17 @@ function initGUI() {
     helpMenu.append(new gui.MenuItem({
         label: 'Support',
         click: function () {
-            window.open('https://kiwiirc.com/client/irc.freenode.net/nomp', "_blank", "width=600,height=400");
+            openDialog('https://kiwiirc.com/client/irc.freenode.net/nomp', {width: 450, height: 500});
         }
     }));
     helpMenu.append(new gui.MenuItem({label: 'FAQ'}));
     helpMenu.append(new gui.MenuItem({type: 'separator'}));
-    helpMenu.append(new gui.MenuItem({label: 'About'}));
+    helpMenu.append(new gui.MenuItem({
+        label: 'About',
+        click: function() {
+            openDialog('app://local/html/dialogs/about.html', {width: 600, height: 400});
+        }
+    }));
     menu.append(new gui.MenuItem({ label: 'Help', submenu: helpMenu }));
 
     mainWindow.menu = menu;
@@ -90,9 +111,9 @@ nompApp.run(function ($rootScope) {
         {id: 1, name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
     ];
     $rootScope.showAddPoolDialog = function () {
-        window.open('./dialogs/add_pool.html', "_blank", "width=600,height=400");
+        openDialog('app://local/html/dialogs/add_pool.html', {width: 600, height: 400});
     };
     $rootScope.showNewKeyDialog = function () {
-        window.open('./dialogs/new_key.html', "_blank", "width=600,height=400");
+        openDialog('app://local/html/dialogs/new_key.html', {width: 600, height: 400});
     };
 });
