@@ -1,20 +1,21 @@
-# NOMP-App
+# NOMP Desktop
+#### Desktop app for NOMP
 [![Build Status](https://travis-ci.org/LucasJones/nomp-app.svg?branch=master)](https://travis-ci.org/LucasJones/nomp-app)
-#### Desktop app for node-open-mining-portal
 
 #### Table of contents
-
-* [Dependencies](#dependencies)
-* [Build instructions](#build-instructions)
+* [Usage](#usage)
+  * [Requirements](#requirements)
+  * [Build instructions](#build-instructions)
 * [License](#license)
 
-## Dependencies
+## Usage
 
-* `node.js`
-* `npm`
-* `grunt`
+### Requirements
+* [Node.js](http://nodejs.org/) (required for npm & Grunt)
+* [npm](https://npmjs.org/)
+* [Grunt CLI](http://gruntjs.com/getting-started)
 
-## Build instructions
+### Build instructions
 
 * `npm install`
 * `grunt --target=[all, win, mac, linux32, linux64]`
