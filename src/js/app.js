@@ -117,7 +117,7 @@ nompApp.run(function ($rootScope) {
                 $rootScope.$apply(function() {
                     $rootScope.pools.push({
                         id: $rootScope.nextPoolId++,
-                        name: '??',
+                        name: 'Unknown',
                         url: url,
                         user: user
                     });
