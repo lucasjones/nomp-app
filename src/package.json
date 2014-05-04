@@ -8,12 +8,12 @@
         "toolbar": false,
         "frame": true,
         "width": 860,
-        "height": 600,
+        "height": 580,
         "position": "center",
         "min_width": 860,
-        "min_height": 600,
+        "min_height": 580,
         "max_width": 860,
-        "max_height": 600
+        "max_height": 580
     },
     "webkit": {
         "plugin": true

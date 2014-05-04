@@ -45,7 +45,7 @@ function initGUI() {
     helpMenu.append(new gui.MenuItem({
         label: 'About',
         click: function() {
-            openDialog('app://local/html/dialogs/about.html', {width: 600, height: 400});
+            openDialog('app://local/html/dialogs/about.html', {width: 500, height: 250});
         }
     }));
     menu.append(new gui.MenuItem({ label: 'Help', submenu: helpMenu }));

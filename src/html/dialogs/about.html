@@ -4,10 +4,31 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>About</title>
+  <link rel="stylesheet" href="/bower_components/open-sans-fontface/open-sans.css">
+  <link rel="stylesheet" href="/bower_components/components-font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/bower_components/pure/pure-min.css">
+  <link rel="stylesheet" href="/bower_components/nprogress/nprogress.css">
+  <link rel="stylesheet" href="/bower_components/tooltipster/css/tooltipster.css">
+  <link rel="stylesheet" href="/bower_components/tooltipster/css/themes/tooltipster-light.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dialog.css">
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/nprogress/nprogress.js"></script>
+  <script src="/bower_components/placeholdem/placeholdem.min.js"></script>
+  <script src="/bower_components/tooltipster/js/jquery.tooltipster.min.js"></script>
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/js/dialog.js"></script>
+  <script src="/js/main.js"></script>
 </head>
-<body>
-
-<h2>About</h2>
-
+<body ng-app="dialogApp" ng-controller="AboutCtrl" id="about">
+<header>
+  <h2>About</h2>
+</header>
+<main>
+  <p>NOMP Desktop was created by Lucas Jones and is licensed under the GPL</p>
+  <p>Copyright &#169; Lucas Jones {{copyrightRange(2014)}}</p>
+  <div class="githubForkMe" ng-click="openGithub()"></div>
+</main>
 </body>
 </html>
