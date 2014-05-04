@@ -4,8 +4,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
     
     var target = grunt.option('target') || 'all';
-    if(['all', 'win', 'mac', 'linux32', 'linux64'].indexOf(target) === -1) {
-        console.error("No such target: " + target);
+    var buildTargets = ['all', 'win', 'mac', 'linux32', 'linux64'];
+    if(buildTargets.indexOf(target) === -1) {
+        throw "Invalid build target: '" + target + "'. valid targets: " + buildTargets.join(', ');
     }
 
     grunt.initConfig({
