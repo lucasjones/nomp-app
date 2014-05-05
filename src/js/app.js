@@ -11,7 +11,8 @@ function openDialog(url, options) {
         width: 600,
         height: 400,
         resizable: true,
-        'always-on-top': false
+        'always-on-top': false,
+        focus: true
     };
     $.extend(config, options);
     return gui.Window.open(url, config);
