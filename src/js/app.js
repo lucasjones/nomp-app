@@ -122,10 +122,8 @@ nompApp.run(function ($rootScope) {
 
     // The user's saved pools
     $rootScope.pools = [
-        {id: 1, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-        {id: 2, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-        {id: 3, name: 'NompPool', url: 'example.com', user: 'ca23629e2647387e99542fc0b25cdf75e101c3c0'},
-        {id: 4, name: 'TestPool', coin: 'BTC', url: '127.0.0.1:2000', user: '1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR'}
+        {id: 1, name: 'NompPool', url: 'example.com', users: ['ca23629e2647387e99542fc0b25cdf75e101c3c0']},
+        {id: 2, name: 'TestPool', url: '127.0.0.1:2000', users: ['1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR']}
     ];
     $rootScope.nextPoolId = 5;
     // The user's mining keys

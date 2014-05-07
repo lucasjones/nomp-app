@@ -23,11 +23,12 @@
 
                 <div class="fa fa-search"></div>
               </label>
-              <ul class="list bluelist">
+              <ul class="list bluelist poolList">
                 <li ng-repeat="pool in pools | filter:reconnectQuery" ng-click="toggleSelectedPool(pool.id)"
                     ng-class="{selected: pool.id === selectedPool}" ng-dblclick="tryConnect(pool.url, pool.user)"
-                    title="{{pool.url}} - {{pool.user}}">
-                  {{pool.name}} ({{pool.url}}) {{pool.coin ? '[' + pool.coin + ']' : ''}} - {{pool.user}}
+                    title="{{pool.users.join(' ')}}">
+                  <span>{{pool.name}}</span>
+                  <span class="paleBlue">{{pool.url}}</span>
                 </li>
               </ul>
             </div>
@@ -62,7 +63,8 @@
               <ul class="list bluelist">
                 <li ng-repeat="key in keys | filter:addrQuery" ng-click="toggleSelectedKey(key.id)"
                     ng-class="{selected: key.id === selectedKey}" title="{{key.hash160}}">
-                  {{key.name}} - {{key.hash160}}
+                  <span>{{key.name}}</span>
+                  <span class="paleBlue">{{key.hash160}}</span>
                 </li>
               </ul>
             </div>
