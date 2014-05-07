@@ -144,6 +144,15 @@ nompApp.run(function ($rootScope) {
                     }
                 });
             };
+            var configWriteTimeout = 0;
+            $rootScope.scheduleConfigWrite = function() {
+                if(!configWriteTimeout) {
+                    configWriteTimeout = setTimeout(function() {
+                        $rootScope.writeConfigFile();
+                        configWriteTimeout = 0;
+                    }, 500);
+                }
+            };
 
             // The user's saved pools
             $rootScope.pools = [
@@ -193,10 +202,10 @@ nompApp.run(function ($rootScope) {
         },
         function (callback) {
             $rootScope.$watchCollection('pools', function () {
-                $rootScope.writeConfigFile();
+                $rootScope.scheduleConfigWrite();
             });
             $rootScope.$watchCollection('keys', function () {
-                $rootScope.writeConfigFile();
+                $rootScope.scheduleConfigWrite();
             });
             initGUI($rootScope);
             $rootScope.showAddPoolDialog = function () {
