@@ -27,7 +27,7 @@
                 <li ng-repeat="pool in pools | filter:reconnectQuery" ng-click="toggleSelectedPool(pool.id)"
                     ng-class="{selected: pool.id === selectedPool}" ng-dblclick="tryConnect(pool.url, pool.user)"
                     title="{{pool.users.join(' ')}}">
-                  <span>{{pool.name}}</span>
+                  <span>{{pool.name || ''}}</span>
                   <span class="paleBlue">{{pool.url}}</span>
                 </li>
               </ul>

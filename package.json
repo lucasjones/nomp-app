@@ -1,5 +1,5 @@
 {
-    "name": "nomp-desktop-app",
+    "name": "nomp_desktop",
     "description": "desktop app for node-open-mining-portal",
     "version": "0.0.1",
     "dependencies": {

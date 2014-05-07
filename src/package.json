@@ -1,5 +1,5 @@
 {
-    "name": "nomp-desktop-app",
+    "name": "nomp_desktop",
     "version": "0.0.1",
     "main": "app://local/html/index.html",
     "window": {
@@ -19,6 +19,8 @@
         "plugin": true
     },
     "dependencies": {
-        "request": "2.34.x"
+        "request": "2.34.x",
+        "async": "0.8.x",
+        "mkdirp": "0.5.x"
     }
 }
