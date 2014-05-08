@@ -63,7 +63,7 @@
               <ul class="list bluelist">
                 <li ng-repeat="(id, key) in keys | filter:addrQuery" ng-click="toggleSelectedKey(id)"
                     ng-class="{selected: id === selectedKey}" title="{{key.hash160}}">
-                  <span>#{{id}} {{key.name}}</span>
+                  <span>{{key.name}}</span>
                   <span class="paleBlue">{{key.hash160}}</span>
                 </li>
               </ul>
