@@ -230,20 +230,13 @@ nompApp.run(function ($rootScope) {
             $rootScope.showOptionsDialog = function () {
                 openDialog('app://local/html/dialogs/options.html', {width: 600, height: 400});
             };
-            $rootScope.getPoolKeys = function (pool) {
-                var keys = [];
-                for (var i = 0; i < pool.keys.length; i++) {
-                    keys.push($rootScope.keys[pool.keys[i]]);
-                }
-                return keys;
-            };
             $rootScope.getKeyHashes = function (keys) {
                 var hashes = [];
                 for (var i = 0; i < keys.length; i++) {
-                    hashes.push(keys[i].hash160);
+                    hashes.push($rootScope.keys[keys[i]].hash160);
                 }
                 return hashes;
-            }
+            };
             callback(null);
         }
     ]);
