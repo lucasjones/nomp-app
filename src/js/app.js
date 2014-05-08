@@ -145,33 +145,37 @@ nompApp.run(function ($rootScope) {
                 });
             };
             var configWriteTimeout = 0;
-            $rootScope.scheduleConfigWrite = function() {
-                if(!configWriteTimeout) {
-                    configWriteTimeout = setTimeout(function() {
+            $rootScope.scheduleConfigWrite = function () {
+                if (!configWriteTimeout) {
+                    configWriteTimeout = setTimeout(function () {
                         $rootScope.writeConfigFile();
                         configWriteTimeout = 0;
                     }, 500);
                 }
             };
 
+            $rootScope.async = async;
+
             // The user's saved pools
-            $rootScope.pools = [
-                {id: 1, name: 'NompPool', url: 'example.com', users: ['ca23629e2647387e99542fc0b25cdf75e101c3c0']},
-                {id: 2, name: 'TestPool', url: '127.0.0.1:2000', users: ['1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR']}
-            ];
+            $rootScope.pools = {
+                1: {name: 'NompPool', url: 'example.com', keys: [1]},
+                2: {name: 'TestPool', url: '127.0.0.1:2000', keys: [1]}
+            };
             // ID to use for next pool
             $rootScope.nextPoolId = 1;
             $rootScope.$watchCollection('pools', function () {
-                for (var i = 0; i < $rootScope.pools.length; i++) {
-                    if ($rootScope.nextPoolId <= $rootScope.pools[i].id) {
-                        $rootScope.nextPoolId = $rootScope.pools[i].id + 1;
+                for (var i in $rootScope.pools.length) {
+                    if ($rootScope.pools.hasOwnProperty(i)) {
+                        if ($rootScope.nextPoolId < parseInt(i)) {
+                            $rootScope.nextPoolId = parseInt(i) + 1;
+                        }
                     }
                 }
             });
             // The user's mining keys
-            $rootScope.keys = [
-                {id: 1, name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
-            ];
+            $rootScope.keys = {
+                1: {name: 'Mining wallet 1', hash160: 'ca23629e2647387e99542fc0b25cdf75e101c3c0', watch_only: true}
+            };
             mkdirp($rootScope.dataPath, function (err) {
                 if (err) {
                     throw "Failed to open data directory (" + $rootScope.dataPath + "): " + err;
@@ -226,6 +230,20 @@ nompApp.run(function ($rootScope) {
             $rootScope.showOptionsDialog = function () {
                 openDialog('app://local/html/dialogs/options.html', {width: 600, height: 400});
             };
+            $rootScope.getPoolKeys = function (pool) {
+                var keys = [];
+                for (var i = 0; i < pool.keys.length; i++) {
+                    keys.push($rootScope.keys[pool.keys[i]]);
+                }
+                return keys;
+            };
+            $rootScope.getKeyHashes = function (keys) {
+                var hashes = [];
+                for (var i = 0; i < keys.length; i++) {
+                    hashes.push(keys[i].hash160);
+                }
+                return hashes;
+            }
             callback(null);
         }
     ]);

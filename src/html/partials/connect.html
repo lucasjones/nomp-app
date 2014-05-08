@@ -24,16 +24,16 @@
                 <div class="fa fa-search"></div>
               </label>
               <ul class="list bluelist poolList">
-                <li ng-repeat="pool in pools | filter:reconnectQuery" ng-click="toggleSelectedPool(pool.id)"
-                    ng-class="{selected: pool.id === selectedPool}" ng-dblclick="tryConnect(pool.url, pool.user)"
-                    title="{{pool.users.join(' ')}}">
+                <li ng-repeat="(id, pool) in pools | filter:reconnectQuery" ng-click="toggleSelectedPool(id)"
+                    ng-class="{selected: id === selectedPool}" ng-dblclick="tryConnect(pool.url, pool.user)"
+                    title="{{getKeyHashes(getPoolKeys(pool)).join(' ')}}">
                   <span>{{pool.name || ''}}</span>
                   <span class="paleBlue">{{pool.url}}</span>
                 </li>
               </ul>
             </div>
             <div class="ctrlDiv">
-              <button ng-click="tryConnect(getSelectedPool().url, getSelectedPool().user)" name="connect"
+              <button ng-click="tryConnect(pools[selectedPool].url, pools[selectedPool].user)" name="connect"
                       class="fa fa-arrow-right" ng-disabled="selectedPool === 0 || connecting"
                       title="Connect to pool"></button>
               <button ng-click="removePool(selectedPool)" title="Delete pool" name="remove" class="fa fa-trash-o"
@@ -61,9 +61,9 @@
                 <div class="fa fa-search"></div>
               </label>
               <ul class="list bluelist">
-                <li ng-repeat="key in keys | filter:addrQuery" ng-click="toggleSelectedKey(key.id)"
-                    ng-class="{selected: key.id === selectedKey}" title="{{key.hash160}}">
-                  <span>{{key.name}}</span>
+                <li ng-repeat="(id, key) in keys | filter:addrQuery" ng-click="toggleSelectedKey(id)"
+                    ng-class="{selected: id === selectedKey}" title="{{key.hash160}}">
+                  <span>#{{id}} {{key.name}}</span>
                   <span class="paleBlue">{{key.hash160}}</span>
                 </li>
               </ul>

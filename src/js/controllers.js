@@ -90,22 +90,9 @@ nompControllers.controller('ConnectCtrl', function ($scope, $rootScope, $locatio
     };
     $scope.removePool = function (id) {
         if ($scope.connecting) return;
-        if(id == $scope.selectedPool) $scope.selectedPool = 0
-        for (var i = 0; i < $rootScope.pools.length; i++) {
-            if ($rootScope.pools[i].id === id) {
-                $rootScope.pools.splice(i, 1);
-                return;
-            }
-        }
+        if (id == $scope.selectedPool) $scope.selectedPool = 0
+        delete $rootScope.pools[id];
     };
-    $scope.getSelectedPool = function () {
-        for (var i = 0; i < $rootScope.pools.length; i++) {
-            if ($rootScope.pools[i].id === $scope.selectedPool) {
-                return $rootScope.pools[i];
-            }
-        }
-        return undefined;
-    }
 });
 
 nompControllers.controller('PoolCtrl', function ($scope, $rootScope) {
