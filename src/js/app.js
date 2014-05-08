@@ -164,7 +164,7 @@ nompApp.run(function ($rootScope) {
             // ID to use for next pool
             $rootScope.nextPoolId = 1;
             $rootScope.$watchCollection('pools', function () {
-                for (var i in $rootScope.pools.length) {
+                for (var i in $rootScope.pools) {
                     if ($rootScope.pools.hasOwnProperty(i)) {
                         if ($rootScope.nextPoolId < parseInt(i)) {
                             $rootScope.nextPoolId = parseInt(i) + 1;
@@ -216,11 +216,10 @@ nompApp.run(function ($rootScope) {
                 openDialog('app://local/html/dialogs/add_pool.html', {width: 400, height: 250})
                     .on('addPool', function (url, user) {
                         $rootScope.$apply(function () {
-                            $rootScope.pools.push({
-                                id: $rootScope.nextPoolId++,
+                            $rootScope.pools[$rootScope.nextPoolId++] = {
                                 url: url,
                                 user: user
-                            });
+                            };
                         });
                     });
             };
