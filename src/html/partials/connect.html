@@ -26,7 +26,7 @@
               <ul class="list bluelist poolList">
                 <li ng-repeat="(id, pool) in pools | filter:reconnectQuery" ng-click="toggleSelectedPool(id)"
                     ng-class="{selected: id === selectedPool}" ng-dblclick="tryConnect(pool.url, pool.user)"
-                    title="{{getKeyHashes(pool.keys).join(' ')}}">
+                    title="{{poolUserStrings(pool.users).join(' ')}}">
                   <span>{{pool.name || ''}}</span>
                   <span class="paleBlue">{{pool.url}}</span>
                 </li>

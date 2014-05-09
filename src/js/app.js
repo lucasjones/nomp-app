@@ -158,8 +158,22 @@ nompApp.run(function ($rootScope) {
 
             // The user's saved pools
             $rootScope.pools = {
-                1: {name: 'NompPool', url: 'example.com', keys: [1]},
-                2: {name: 'TestPool', url: '127.0.0.1:2000', keys: [1]}
+                1: {name: 'NompPool', url: 'example.com', users: [
+                    {
+                        hash: 'ca23629e2647387e99542fc0b25cdf75e101c3c0',
+                        worker: ''
+                    }
+                ]},
+                2: {name: 'TestPool', url: '127.0.0.1:2000', users: [
+                    {
+                        hash: 'ca23629e2647387e99542fc0b25cdf75e101c3c0',
+                        worker: '1'
+                    },
+                    {
+                        hash: 'ca23629e2647387e99542fc0b25cdf75e101c3c0',
+                        worker: '2'
+                    }
+                ]}
             };
             // ID to use for next pool
             $rootScope.nextPoolId = 1;
@@ -229,12 +243,12 @@ nompApp.run(function ($rootScope) {
             $rootScope.showOptionsDialog = function () {
                 openDialog('app://local/html/dialogs/options.html', {width: 600, height: 400});
             };
-            $rootScope.getKeyHashes = function (keys) {
-                var hashes = [];
-                for (var i = 0; i < keys.length; i++) {
-                    hashes.push($rootScope.keys[keys[i]].hash160);
+            $rootScope.poolUserStrings = function (users) {
+                var ret = [];
+                for (var i = 0; i < users.length; i++) {
+                    ret.push(users[i].hash + (users[i].worker ? '.' + users[i].worker : ''));
                 }
-                return hashes;
+                return ret;
             };
             callback(null);
         }
