@@ -3,10 +3,15 @@
 [![Build Status](https://travis-ci.org/LucasJones/nomp-app.svg?branch=master)](https://travis-ci.org/LucasJones/nomp-app)
 
 #### Table of contents
+* [Screenshots](#screenshots)
 * [Usage](#usage)
   * [Requirements](#requirements)
   * [Build instructions](#build-instructions)
 * [License](#license)
+
+## Screenshots
+
+![Main screen](images/screenshot_1.png?raw=true)
 
 ## Usage
 
