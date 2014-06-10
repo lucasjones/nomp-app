@@ -16,6 +16,7 @@ INCLUDEPATH += src
 SOURCES += main.cpp\
        src/mainwindow.cpp
 
-HEADERS  += src/mainwindow.h
+HEADERS  += src/mainwindow.h \
+    src/util.h
 
 FORMS    += mainwindow.ui

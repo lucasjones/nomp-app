@@ -100,7 +100,7 @@
            <number>5</number>
           </property>
           <item row="2" column="1">
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="editPool">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -150,7 +150,7 @@ QPushButton:disabled {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="connectPool">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -206,7 +206,7 @@ QPushButton:disabled {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="deletePool">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -256,7 +256,7 @@ QPushButton:disabled {
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="addPool">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -303,7 +303,7 @@ QPushButton:disabled {
            </widget>
           </item>
           <item row="0" column="0" rowspan="4">
-           <widget class="QListView" name="listView">
+           <widget class="QListView" name="poolList">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -311,11 +311,27 @@ QPushButton:disabled {
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: #9fcadb;
-border: none;</string>
+             <string notr="true">QListView {
+	background-color: #9fcadb;
+	border: none;
+	outline: 0;
+}
+
+QListView::item {
+	background-color: #3498db;
+	color: #ffffff;
+	height: 35px;
+}
+
+QListView::item:selected {
+	background-color: #2980b9;
+}</string>
             </property>
             <property name="lineWidth">
              <number>0</number>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
             </property>
            </widget>
           </item>
@@ -412,7 +428,7 @@ border: none;</string>
            <number>5</number>
           </property>
           <item row="1" column="1">
-           <widget class="QPushButton" name="pushButton_7">
+           <widget class="QPushButton" name="deleteKey">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -462,7 +478,7 @@ QPushButton:disabled {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QPushButton" name="pushButton_5">
+           <widget class="QPushButton" name="editKey">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -512,7 +528,7 @@ QPushButton:disabled {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QPushButton" name="pushButton_6">
+           <widget class="QPushButton" name="exportKey">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -562,7 +578,7 @@ QPushButton:disabled {
            </widget>
           </item>
           <item row="0" column="0" rowspan="4">
-           <widget class="QListView" name="listView_2">
+           <widget class="QListView" name="keyList">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -570,16 +586,32 @@ QPushButton:disabled {
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: #9fcadb;
-border: none;</string>
+             <string notr="true">QListView {
+	background-color: #9fcadb;
+	border: none;
+	outline: 0;
+}
+
+QListView::item {
+	background-color: #3498db;
+	color: #ffffff;
+	height: 35px;
+}
+
+QListView::item:selected {
+	background-color: #2980b9;
+}</string>
             </property>
             <property name="lineWidth">
              <number>0</number>
             </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_8">
+           <widget class="QPushButton" name="addKey">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
