@@ -320,7 +320,8 @@ QPushButton:disabled {
 QListView::item {
 	background-color: #3498db;
 	color: #ffffff;
-	height: 35px;
+	height: 25px;
+	border-bottom: 1px solid #9fcadb;
 }
 
 QListView::item:selected {
@@ -595,7 +596,8 @@ QPushButton:disabled {
 QListView::item {
 	background-color: #3498db;
 	color: #ffffff;
-	height: 35px;
+	height: 25px;
+	border-bottom: 1px solid #9fcadb;
 }
 
 QListView::item:selected {
