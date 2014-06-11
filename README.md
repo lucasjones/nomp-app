@@ -11,7 +11,7 @@
 ## Usage
 
 ### Requirements
-* [Qt](http://qt-project.org/)
+* [Qt 5](http://qt-project.org/)
 
 ### Build instructions
 

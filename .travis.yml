@@ -1,8 +1,9 @@
 language: cpp
 
 install:
+  - sudo apt-add-repository ppa:ubuntu-sdk-team/ppa -y
   - sudo apt-get update
-  - sudo apt-get install libqt4-dev qt4-qmake
+  - sudo apt-get install qt5-default qttools5-dev-tools qt5-qmake
 
 script:
   - qmake nomp_app.pro
