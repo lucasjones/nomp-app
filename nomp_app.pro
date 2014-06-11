@@ -13,10 +13,19 @@ TEMPLATE = app
 
 INCLUDEPATH += src
 
-SOURCES += main.cpp\
+SOURCES += src/main.cpp\
        src/mainwindow.cpp
 
 HEADERS  += src/mainwindow.h \
     src/util.h
 
-FORMS    += mainwindow.ui
+FORMS    += form/mainwindow.ui
+
+OTHER_FILES += \
+    .gitignore \
+    .travis.yml \
+    LICENSE \
+    README.md
+
+RESOURCES += \
+    res/resource.qrc
