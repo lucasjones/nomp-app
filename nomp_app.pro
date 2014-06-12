@@ -14,12 +14,15 @@ TEMPLATE = app
 INCLUDEPATH += src
 
 SOURCES += src/main.cpp\
-       src/mainwindow.cpp
+       src/mainwindow.cpp \
+    src/aboutdialog.cpp
 
 HEADERS  += src/mainwindow.h \
-    src/util.h
+    src/util.h \
+    src/aboutdialog.h
 
-FORMS    += form/mainwindow.ui
+FORMS    += form/mainwindow.ui \
+    form/aboutdialog.ui
 
 OTHER_FILES += \
     .gitignore \

@@ -15,10 +15,12 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(poolSelectionChanged(QItemSelection,QItemSelection)));
     connect(ui->keyList->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(keySelectionChanged(QItemSelection,QItemSelection)));
+    aboutDialog = new AboutDialog(this);
 }
 
 MainWindow::~MainWindow()
 {
+    delete aboutDialog;
     delete ui;
 }
 
@@ -36,4 +38,9 @@ void MainWindow::keySelectionChanged(QItemSelection current, QItemSelection prev
     ui->exportKey->setEnabled(enabled);
     ui->deleteKey->setEnabled(enabled);
     ui->editKey->setEnabled(enabled);
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    aboutDialog->show();
 }
