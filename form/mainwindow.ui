@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>NOMP Desktop</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
