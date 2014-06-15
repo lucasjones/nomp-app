@@ -12,9 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
     poolList << "Test pool 2 - http://127.0.0.1/";
     keyList << "NOMP Donation address - 22851477d63a085dbc2398c8430af1c09e7343f6";
     connect(ui->poolList->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(poolSelectionChanged(QItemSelection,QItemSelection)));
+            this, SLOT(poolSelectionChanged(QItemSelection)));
     connect(ui->keyList->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(keySelectionChanged(QItemSelection,QItemSelection)));
+            this, SLOT(keySelectionChanged(QItemSelection)));
     aboutDialog = new AboutDialog(this);
 }
 
@@ -24,7 +24,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::poolSelectionChanged(QItemSelection current, QItemSelection previous)
+void MainWindow::poolSelectionChanged(QItemSelection current)
 {
     bool enabled = !current.isEmpty();
     ui->connectPool->setEnabled(enabled);
@@ -32,7 +32,7 @@ void MainWindow::poolSelectionChanged(QItemSelection current, QItemSelection pre
     ui->editPool->setEnabled(enabled);
 }
 
-void MainWindow::keySelectionChanged(QItemSelection current, QItemSelection previous)
+void MainWindow::keySelectionChanged(QItemSelection current)
 {
     bool enabled = !current.isEmpty();
     ui->exportKey->setEnabled(enabled);

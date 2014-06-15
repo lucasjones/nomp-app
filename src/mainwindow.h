@@ -20,8 +20,8 @@ public:
     ~MainWindow();
 
 public slots:
-    void poolSelectionChanged(QItemSelection current, QItemSelection previous);
-    void keySelectionChanged(QItemSelection current, QItemSelection previous);
+    void poolSelectionChanged(QItemSelection current);
+    void keySelectionChanged(QItemSelection current);
 
 private slots:
     void on_actionAbout_triggered();
