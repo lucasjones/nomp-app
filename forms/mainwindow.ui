@@ -72,7 +72,9 @@
        <item>
         <widget class="QFrame" name="frame_4">
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">QFrame {
+	border: none;
+}</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -403,6 +405,11 @@ QListView::item:selected {
        </item>
        <item>
         <widget class="QFrame" name="frame_5">
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+	border: none;
+}</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -673,7 +680,7 @@ QPushButton:disabled {
      <x>0</x>
      <y>0</y>
      <width>707</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPool">
